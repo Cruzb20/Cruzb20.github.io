@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <link rel="icon" type="image/x-icon" href="https://play-lh.googleusercontent.com/WRlGQXa9Pav7YZPW-P5X8PAga0lF2T1BAzmasxB9qV_1_om5DgmMbxOFo2SK8ZN5K5k">
+    <title>Stack Game</title>
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+
+body {
+  margin: 0;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  overflow: hidden;
+}
+canvas {
+  width: 100%;
+  height: 100%;
+  
+}
+
+#instructions {
+  display: none;
+}
+#background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        animation: example 2s infinite linear;
+      }
+
+      @keyframes example {
+        0% {
+          background-color: black;
+        }
+        25% {
+          background-color: yellow;
+        }
+        50% {
+          background-color: blue;
+        }
+        75% {
+          background-color: green;
+        }
+        100% {
+          background-color: red;
+        }
+      }
+#results,
+body:hover #instructions {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(20, 20, 20, 0.75);
+}
+
+a:visited {
+  color: inherit;
+}
+
+#results {
+  display: none;
+  cursor: default;
+}
+.ss{
+  font-size: 51px;
+}
+#results .content,
+#instructions .content {
+  max-width: 300px;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+  
+#score-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 999;
+  font-size: 30px;
+}
+
+#score-container h3 {
+  margin: 5px 0;
+color: blue;
+}
+button{
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  body {
+  margin: 0;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  overflow: hidden;
+}
+  button {
+    display: block;
+    border: none;
+     text-align: center;
+     height: 50PX;
+     width: 75PX;
+     font-size:20PX ;
+     outline: none;
+  }
+  P{
+    display: none;
+  }
+  .ss{
+    font-size: 50px;
+    display:flex ;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="background"></div>
+    <div id="score-container">
+      <h3>Score: <span id="score"></span></h3>
+      <h3>Highest Score: <span id="highestscore"></span></h3>
+    </div>    
+    <div id="results">
+      <div class="content">
+        <h1 class="ss">Game Over!</h1>
+       <center><button  id="restart-button">Restart</button></center>
+        <p align="center">Press "R" to restart</p>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
